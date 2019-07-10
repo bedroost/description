@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Description = require('./Description.js');
 const generateFakeDescriptions = require('./seed.js');
 
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect('mongodb://localhost:27017/descriptions');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -18,13 +18,12 @@ db.once('open', async () => {
 });
 
 const getData = () => {
-  Description.findById(134030, (err, resultDocs) => {
+  Description.findById(134030, (err, res) => { // res is response from database
     if (err) {
       console.log(err, 'error');
-      return err;
+    } else {
+      console.log(res);
     }
-    console.log('hello from getData');
-    return resultDocs;
   });
 };
 

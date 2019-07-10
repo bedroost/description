@@ -7,9 +7,8 @@ const port = 8080;
 
 app.use(express.static('./dist'));
 
-app.get('/description', (req, res) => {
-  console.log('fetching data!');
-  res.end(getData());
+app.get('/description/:listingId', (req, res) => {
+  getData();
 });
 
 app.listen(port, (err) => {

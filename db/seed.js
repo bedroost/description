@@ -62,4 +62,3 @@ const generateFakeDescriptions = () => {
 };
 
 module.exports = generateFakeDescriptions;
-
