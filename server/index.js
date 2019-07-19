@@ -1,5 +1,6 @@
 /* eslint-disable func-names */
 const express = require('express');
+const morgan = require('morgan');
 const Description = require('../db/Description.js');
 const database = require('../db/index.js');
 
@@ -9,6 +10,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('dist'));
+app.use(morgan('dev'));
 
 app.get('/rooms/:listingId', (req, res) => {
   const id = req.params.listingId;

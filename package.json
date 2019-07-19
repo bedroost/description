@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack -d --watch",
-    "start": "node ./server/index.js",
+    "start": "nodemon ./server/index.js",
     "seed": "node ./db/seed.js"
   },
   "author": "",
@@ -29,6 +29,7 @@
     "jest": "^24.8.0",
     "jest-environment-enzyme": "^7.0.2",
     "jest-enzyme": "^7.0.2",
+    "morgan": "^1.9.1",
     "react-test-renderer": "^16.8.6",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
