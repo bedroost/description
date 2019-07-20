@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const Description = require('./Description.js');
 const generateFakeDescriptions = require('./seed.js');
 
-mongoose.connect('mongodb+srv://admin:description@listingdescriptions-omqwn.mongodb.net/test?retryWrites=true&w=majority/descriptions');
+mongoose.connect('mongodb+srv://admin:description@listingdescriptions-omqwn.mongodb.net/descriptions?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', async () => {
-  console.log('mongoose connected to database');
+  console.log('Mongoose connected to database');
   db.dropCollection('descriptions');
   console.log('deleted');
   const docs = generateFakeDescriptions();
@@ -20,3 +20,5 @@ db.once('open', async () => {
     console.error(err);
   }
 });
+// db.once('open', async () => {
+//   console.log('mongoose connected to database');
